@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Image, ImageBackground, View, StatusBar, Platform, TouchableOpacity, FlatList, ScrollView, Dimensions} from "react-native";
+import {View, StatusBar, Platform, TouchableOpacity, FlatList, ScrollView, Dimensions, WebView} from "react-native";
 
 import {Container, Content, Text, Header, Title, Body, Left, Right, Icon, Button} from "native-base";
 import {NavigationActions} from "react-navigation";
@@ -10,6 +10,7 @@ import styles from "./style";    //CSS defined here
 import Utils from "../../utils/functions";
 import {C_Const, C_MULTI_LANG} from '../../utils/constant';
 import store from 'react-native-simple-store';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 //define label
 const T_ABOUT = 'about';
@@ -17,16 +18,31 @@ const T_CONTACT = 'contact';
 
 class Viewer extends BaseScreen {
     constructor(props) {
-  		super(props);
-  		this.state = {
-        selectedTab: T_ABOUT,
-        _language_info: {}
-  		};
-  	}
+      super(props);
+      this.state = {
+        loading_indicator_state: true
+      };
+    }
     //
     componentDidMount() {
     }
+    //close spinner after page loading
+    _close_spinner = () => {
+      this.setState({
+        loading_indicator_state: false
+      });
+    };
+    //
+    _start_spinner = () => {
+      this.setState({
+        loading_indicator_state: true
+      });
+    };
+    //
+  	_onNavigationStateChange = (event) => {
+  		Utils.dlog('_onNavigationStateChange '+event.url);
 
+  	};
    //==========
     render() {
       {/* define how to render country list */}
@@ -49,7 +65,16 @@ class Viewer extends BaseScreen {
               </Header>
               {/* END header */}
               <Content>
+                <Spinner visible={this.state.loading_indicator_state} textStyle={common_styles.whiteColor} />
 
+                <WebView
+                  ref={'WEBVIEW_REF'}
+                  source={{uri: 'http://localhost:8089/WizardsOfOz/EPUB/7ea16842-05bd-4c2d-e124-3061cb1dd91e.xhtml'}}
+                  style={styles.webview}
+                  onLoadEnd={this._close_spinner}
+                  onLoadStart={this._start_spinner}
+                  onNavigationStateChange={this._onNavigationStateChange}
+                />
               </Content>
             </Container>
         );

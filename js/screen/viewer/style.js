@@ -6,6 +6,7 @@ const React = require("react-native");
 const { StyleSheet, Dimensions, Platform } = React;
 
 const deviceWidth = Dimensions.get("window").width;
+const deviceHeight = Dimensions.get("window").height;
 
 export default {
   left: {flex:0.3, flexDirection: 'row'},
@@ -28,5 +29,9 @@ export default {
   contact_item_container_last: {borderBottomWidth: 0},
   btn_row_container: {flex: 1, flexDirection: 'row', marginTop: 10, marginBottom: 10},
   btn_container: {width: 50, height: 50, borderRadius: 25, borderWidth: 2, borderColor: '#ccc', justifyContent: 'center', alignItems: 'center', marginRight: 20},
-
+  webview: {
+    flex:1, width:'100%', minWidth:deviceWidth,
+    minHeight: deviceHeight-80, //why 80???
+    height:'100%'
+  },
 };
