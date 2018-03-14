@@ -30,8 +30,12 @@ export default {
   btn_row_container: {flex: 1, flexDirection: 'row', marginTop: 10, marginBottom: 10},
   btn_container: {width: 50, height: 50, borderRadius: 25, borderWidth: 2, borderColor: '#ccc', justifyContent: 'center', alignItems: 'center', marginRight: 20},
   webview: {
-    flex:1, width:'100%', minWidth:deviceWidth,
-    minHeight: deviceHeight-80, //why 80???
-    height:'100%'
+    width:'100%', minWidth:deviceWidth,
+    minHeight: deviceHeight-160, //why 80???
+    height:'80%'
   },
+  bottom_container: {
+    position:'absolute', backgroundColor: '#ff0',
+    height: 50, bottom: 0, left: 0, right: 0
+  }
 };

@@ -76,6 +76,7 @@ class Viewer extends BaseScreen {
                   mediaPlaybackRequiresUserAction={false}
                   onNavigationStateChange={this._onNavigationStateChange}
                 />
+
               </Content>
             </Container>
         );

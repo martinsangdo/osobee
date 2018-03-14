@@ -61,16 +61,48 @@ class Timeline extends BaseScreen {
                 </Right>
               </Header>
               {/* END header */}
-              {/* FlatList has no props bounces for refreshing in iOS */}
-                <View style={{flex:1}}>
-                  <TouchableOpacity onPress={() => this._open_detail('http://localhost:8089/WizardsOfOz/EPUB/7ea16842-05bd-4c2d-e124-3061cb1dd91e.xhtml')}>
-                    <Text>Open WizardsOfOz</Text>
-                  </TouchableOpacity>
-                  <View style={{marginBottom: 30}}/>
-                  <TouchableOpacity onPress={() => this._open_detail('http://localhost:8089/sample.xhtml')}>
-                    <Text>Open simple page</Text>
-                  </TouchableOpacity>
+              <TouchableOpacity onPress={() => this._open_detail('http://216.240.43.70:8080/viewer/viewer.html')}>
+                <View style={styles.item_row}>
+                  <View>
+                    <Image style={styles.thumb} source={{uri: 'http://216.240.43.70:8080/viewer/wizard.png'}}/>
+                  </View>
+                  <View style={styles.text_label}>
+                    <Text numberOfLines={2}>The War Poems</Text>
+                    <Text style={styles.time_label}>Fixed layout</Text>
+                  </View>
+                  <View style={styles.forward_ico}>
+                    <Icon name="ios-arrow-forward-outline" style={common_styles.darkGrayColor}/>
+                  </View>
                 </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this._open_detail('http://216.240.43.70:8080/viewer/viewer2.html')}>
+                <View style={styles.item_row}>
+                  <View>
+                    <Image style={styles.thumb} source={{uri: 'http://216.240.43.70:8080/viewer/good.png'}}/>
+                  </View>
+                  <View style={styles.text_label}>
+                    <Text numberOfLines={2}>Good Will</Text>
+                    <Text style={styles.time_label}>Reflowable layout</Text>
+                  </View>
+                  <View style={styles.forward_ico}>
+                    <Icon name="ios-arrow-forward-outline" style={common_styles.darkGrayColor}/>
+                  </View>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this._open_detail('http://216.240.43.70:8080/viewer/viewer3.html')}>
+                <View style={styles.item_row}>
+                  <View>
+                    <Image style={styles.thumb} source={{uri: 'http://216.240.43.70:8080/viewer/war.png'}}/>
+                  </View>
+                  <View style={styles.text_label}>
+                    <Text numberOfLines={2}>The War Poems</Text>
+                    <Text style={styles.time_label}>Fixed layout</Text>
+                  </View>
+                  <View style={styles.forward_ico}>
+                    <Icon name="ios-arrow-forward-outline" style={common_styles.darkGrayColor}/>
+                  </View>
+                </View>
+              </TouchableOpacity>
             </Container>
         );
     }

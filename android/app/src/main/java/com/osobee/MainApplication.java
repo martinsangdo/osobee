@@ -4,7 +4,6 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
-import com.evollu.react.fcm.FIRMessagingPackage;
 import com.github.wumke.RNExitApp.RNExitAppPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.dscj.autoheightwebview.AutoHeightWebViewPackage;
@@ -29,7 +28,6 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new VectorIconsPackage(),
-            new FIRMessagingPackage(),
             new RNExitAppPackage(),
             new RNDeviceInfo(),
             new AutoHeightWebViewPackage()
