@@ -34,8 +34,8 @@ class Timeline extends BaseScreen {
 
     }
     //
-    _open_detail = () => {
-      this.props.navigation.navigate('Viewer');
+    _open_detail = (link) => {
+      this.props.navigation.navigate('Viewer', {link: link});
     };
    //==========
     render() {
@@ -63,8 +63,12 @@ class Timeline extends BaseScreen {
               {/* END header */}
               {/* FlatList has no props bounces for refreshing in iOS */}
                 <View style={{flex:1}}>
-                  <TouchableOpacity onPress={() => this._open_detail()}>
-                    <Text>Open detail</Text>
+                  <TouchableOpacity onPress={() => this._open_detail('http://localhost:8089/WizardsOfOz/EPUB/7ea16842-05bd-4c2d-e124-3061cb1dd91e.xhtml')}>
+                    <Text>Open WizardsOfOz</Text>
+                  </TouchableOpacity>
+                  <View style={{marginBottom: 30}}/>
+                  <TouchableOpacity onPress={() => this._open_detail('http://localhost:8089/sample.xhtml')}>
+                    <Text>Open simple page</Text>
                   </TouchableOpacity>
                 </View>
             </Container>

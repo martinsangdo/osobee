@@ -69,10 +69,11 @@ class Viewer extends BaseScreen {
 
                 <WebView
                   ref={'WEBVIEW_REF'}
-                  source={{uri: 'http://localhost:8089/WizardsOfOz/EPUB/7ea16842-05bd-4c2d-e124-3061cb1dd91e.xhtml'}}
+                  source={{uri: this.props.navigation.state.params.link}}
                   style={styles.webview}
                   onLoadEnd={this._close_spinner}
                   onLoadStart={this._start_spinner}
+                  mediaPlaybackRequiresUserAction={false}
                   onNavigationStateChange={this._onNavigationStateChange}
                 />
               </Content>
