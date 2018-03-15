@@ -1435,6 +1435,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.campus500.osobee;
 				PRODUCT_NAME = Osobee;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1459,6 +1460,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.campus500.osobee;
 				PRODUCT_NAME = Osobee;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
