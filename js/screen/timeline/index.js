@@ -67,7 +67,7 @@ class Timeline extends BaseScreen {
                     <Image style={styles.thumb} source={{uri: 'http://216.240.43.70:8080/viewer/wizard.png'}}/>
                   </View>
                   <View style={styles.text_label}>
-                    <Text numberOfLines={2}>The War Poems</Text>
+                    <Text numberOfLines={2}>Wizard of Oz</Text>
                     <Text style={styles.time_label}>Fixed layout</Text>
                   </View>
                   <View style={styles.forward_ico}>

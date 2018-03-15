@@ -11,6 +11,7 @@ import Utils from "../../utils/functions";
 import {C_Const, C_MULTI_LANG} from '../../utils/constant';
 import store from 'react-native-simple-store';
 import Spinner from 'react-native-loading-spinner-overlay';
+import AutoHTML from 'react-native-autoheight-webview';
 
 //define label
 const T_ABOUT = 'about';
@@ -41,8 +42,26 @@ class Viewer extends BaseScreen {
     //
   	_onNavigationStateChange = (event) => {
   		Utils.dlog('_onNavigationStateChange '+event.url);
+      // return false;
 
   	};
+    //
+    _onError = (err) => {
+      Utils.dlog(err);
+    };
+    //
+    _onShouldStartLoadWithRequest = (a) => {
+      Utils.xlog('_onShouldStartLoadWithRequest', a);
+      if(checkUrl(e.url)) {
+        Utils.xlog('_onShouldStartLoadWithRequest 111', a);
+          return false;
+      }
+      return true;
+    };
+    //
+    _onMessage = (b) => {
+      Utils.xlog('_onMessage', b);
+    };
    //==========
     render() {
       {/* define how to render country list */}
@@ -69,12 +88,17 @@ class Viewer extends BaseScreen {
 
                 <WebView
                   ref={'WEBVIEW_REF'}
-                  source={{uri: this.props.navigation.state.params.link}}
+                  nativeConfig={{props: {webContentsDebuggingEnabled: true}}}
+                  source={{uri: this.props.navigation.state.params.link, baseUrl: ''}}
                   style={styles.webview}
                   onLoadEnd={this._close_spinner}
                   onLoadStart={this._start_spinner}
                   mediaPlaybackRequiresUserAction={false}
+                  renderError={(e)=> this._onError(e)}
+                  onMessage={this._onMessage}
+                  onShouldStartLoadWithRequest={this._onNavigationStateChange}
                   onNavigationStateChange={this._onNavigationStateChange}
+                  urlPrefixesForDefaultIntent={['blob']}
                 />
 
               </Content>
